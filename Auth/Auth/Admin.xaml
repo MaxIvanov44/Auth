@@ -8,7 +8,7 @@
         Title="Admin" Height="450" Width="800">
     <Grid>
         <DataGrid x:Name="dgr" HorizontalAlignment="Left" Height="340" Margin="90,10,0,0" VerticalAlignment="Top" Width="635" MouseDoubleClick="dgr_MouseDoubleClick" />
-        <TextBox HorizontalAlignment="Left" Height="34" Margin="479,375,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="205" />
+        <TextBox x:Name="idtxt" HorizontalAlignment="Left" Height="34" Margin="479,375,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="205" />
         <Button x:Name="DELETE" Content="Delete" HorizontalAlignment="Left" Margin="10,375,0,0" VerticalAlignment="Top" Width="75" Click="DELETE_Click"/>
         <Button x:Name="UPDATE" Content="Update" HorizontalAlignment="Left" Margin="90,375,0,0" VerticalAlignment="Top" Width="75"/>
         <Label x:Name="idlbl" Content="id" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="744,375,0,0"/>

@@ -9,8 +9,98 @@
     <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="fio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="AuthDBModel.FK_Orders_Users" FromRole="Users" ToRole="Orders" />
   </EntityType>
   <EntityContainer Name="AuthDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="Device" EntityType="AuthDBModel.Device" />
+    <EntitySet Name="Master" EntityType="AuthDBModel.Master" />
+    <EntitySet Name="Orders" EntityType="AuthDBModel.Orders" />
+    <AssociationSet Name="FK_Orders_Device" Association="AuthDBModel.FK_Orders_Device">
+      <End Role="Device" EntitySet="Device" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Master" Association="AuthDBModel.FK_Orders_Master">
+      <End Role="Master" EntitySet="Master" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Users" Association="AuthDBModel.FK_Orders_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Device">
+    <Key>
+      <PropertyRef Name="id_device" />
+    </Key>
+    <Property Name="id_device" Type="Int32" Nullable="false" />
+    <Property Name="description_problem" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="model" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="AuthDBModel.FK_Orders_Device" FromRole="Device" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Master">
+    <Key>
+      <PropertyRef Name="id_master" />
+    </Key>
+    <Property Name="id_master" Type="Int32" Nullable="false" />
+    <Property Name="first_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="last_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="patronymic" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="passport" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="telephone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="AuthDBModel.FK_Orders_Master" FromRole="Master" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="id_orders" />
+    </Key>
+    <Property Name="id_orders" Type="Int32" Nullable="false" />
+    <Property Name="id_users" Type="Int32" Nullable="false" />
+    <Property Name="id_device" Type="Int32" Nullable="false" />
+    <Property Name="id_master" Type="Int32" Nullable="false" />
+    <Property Name="date_order" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Device" Relationship="AuthDBModel.FK_Orders_Device" FromRole="Orders" ToRole="Device" />
+    <NavigationProperty Name="Master" Relationship="AuthDBModel.FK_Orders_Master" FromRole="Orders" ToRole="Master" />
+    <NavigationProperty Name="Users" Relationship="AuthDBModel.FK_Orders_Users" FromRole="Orders" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_Orders_Device">
+    <End Type="AuthDBModel.Device" Role="Device" Multiplicity="1" />
+    <End Type="AuthDBModel.Orders" Role="Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Device">
+        <PropertyRef Name="id_device" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="id_device" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Master">
+    <End Type="AuthDBModel.Master" Role="Master" Multiplicity="1" />
+    <End Type="AuthDBModel.Orders" Role="Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Master">
+        <PropertyRef Name="id_master" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="id_master" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Users">
+    <End Type="AuthDBModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="AuthDBModel.Orders" Role="Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="id_users" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

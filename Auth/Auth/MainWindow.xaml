@@ -7,12 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Зайти" HorizontalAlignment="Left" Margin="662,373,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click" FontSize="24"/>
-        <TextBox x:Name="username" HorizontalAlignment="Left" Height="46" Margin="333,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" FontSize="24"/>
-        <TextBox x:Name="password" HorizontalAlignment="Left" Height="46" Margin="333,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" FontSize="24"/>
+        <Button Content="Зайти" HorizontalAlignment="Left" Margin="486,373,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click" FontSize="24"/>
+        <TextBox x:Name="username" HorizontalAlignment="Left" Height="46" Margin="175,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" FontSize="24"/>
+        <TextBox x:Name="password" HorizontalAlignment="Left" Height="46" Margin="175,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" FontSize="24"/>
         <Button Content="К регистрации" HorizontalAlignment="Left" Margin="10,373,0,0" VerticalAlignment="Top" Width="203" Click="Button_Click_1" FontSize="24"/>
-        <Label Content="Логин" HorizontalAlignment="Left" Margin="135,73,0,0" VerticalAlignment="Top" Height="46" FontSize="24" Width="185"/>
-        <Label Content="Пароль" HorizontalAlignment="Left" Margin="135,212,0,0" VerticalAlignment="Top" Height="46" FontSize="24" Width="221"/>
+        <Label Content="Логин" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="46" FontSize="24" Width="113"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="10,149,0,0" VerticalAlignment="Top" Height="46" FontSize="24" Width="135"/>
+        <TextBox x:Name="username_Copy" HorizontalAlignment="Left" Height="46" Margin="611,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" FontSize="24"/>
+        <TextBox x:Name="password_Copy" HorizontalAlignment="Left" Height="46" Margin="611,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" FontSize="24"/>
+        <Label Content="Логин" HorizontalAlignment="Left" Margin="446,10,0,0" VerticalAlignment="Top" Height="46" FontSize="24" Width="113"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="446,149,0,0" VerticalAlignment="Top" Height="46" FontSize="24" Width="135"/>
+        <Button Content="Зайти2
+                " HorizontalAlignment="Left" Margin="653,373,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click2" FontSize="24"/>
 
     </Grid>
 </Window>

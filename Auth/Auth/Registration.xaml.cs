@@ -1,4 +1,5 @@
-﻿using Logic;
+﻿using Auth.Models;
+using Logic;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -19,7 +20,7 @@ namespace Auth
             try
             {
 
-               AuthDBEntities db = new AuthDBEntities();
+                Model1 db = new Model1();
 
                 //if (password.Text.Trim() == password_confirm.Text.Trim())
                 //{

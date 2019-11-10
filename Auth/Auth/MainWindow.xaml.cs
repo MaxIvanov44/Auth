@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Auth.Master;
+using Auth.Models;
 
 namespace Auth
 {
@@ -27,7 +18,7 @@ namespace Auth
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AuthDBEntities db = new AuthDBEntities();
+           Model1 db = new Model1();
            
             try
             {
@@ -64,9 +55,34 @@ namespace Auth
                 MessageBox.Show(ex.Message);
 
             }
+
+        }
+        private void Button_Click2(object sender, RoutedEventArgs e)
+        {
+            Model1 db = new Model1();
+
+            try
+            {
+                foreach (var masters in db.Master)
+                {
+                    if (masters.password == password_Copy.Text && masters.username == username_Copy.Text)
+                    {
+                        MasterForm mfrm = new MasterForm();
+                        this.Hide();
+                        mfrm.ShowDialog();
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
+
+            }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+            private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Registration reg = new Registration();
             this.Hide();

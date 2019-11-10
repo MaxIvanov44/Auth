@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Auth.Models;
+using System;
 using System.Linq;
 using System.Windows;
+
 using System.Windows.Input;
 
 namespace Auth
@@ -19,15 +21,16 @@ namespace Auth
         }
         void refreshgrid()
         {
-            AuthDBEntities db = new AuthDBEntities();
+            Model1 db = new Model1();
             var data = from r in db.Users select r;
+
             dgr.ItemsSource = data.ToList();
         }
         private void dgr_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             try
             {
-                AuthDBEntities db = new AuthDBEntities();
+                Model1 db = new Model1();
                 if (dgr.SelectedCells.Count() != 0)
                 {
                     Users users = new Users();
@@ -44,27 +47,24 @@ namespace Auth
       
         private void DELETE_Click(object sender, RoutedEventArgs e)
         {
-            //AuthDBEntities db = new AuthDBEntities();
+            MessageBoxResult messageResult = MessageBox.Show("Вы уверены, что хотите удалить это устройство?", "Удаление устройства", MessageBoxButton.YesNo);
+            if (messageResult == MessageBoxResult.Yes)
+            {
+                int abc = Convert.ToInt32(idtxt.Text);
+                Model1 db = new Model1();
+                Users users = db.Users
+                    .Where(o => o.user_id == abc)
+                    .FirstOrDefault();
 
-            //Users usr = new Users();
-            //{
-            //    usr.user_id = Convert.ToInt32(abc);
-            //};
-            //db.Users.Attach(usr);
-            //db.Users.Remove(usr);
-            //db.SaveChanges();
-
-            AuthDBEntities db = new AuthDBEntities();
-            Users users = db.Users
-                .Where(o =>o.user_id == abc)
-                .FirstOrDefault();
-            //Order order = context.Orders
-            //    .Where(o => o.OrderId == 8)
-            //    .FirstOrDefault();
-
-            db.Users.Remove(users);
-            db.SaveChanges();
-
+                db.Users.Remove(users);
+                db.SaveChanges();
+                refreshgrid();
+            } 
+            if (messageResult == MessageBoxResult.No)
+            {
+                MessageBox.Show("Nope!");
+                refreshgrid();
+            }
         }
     }
 }
