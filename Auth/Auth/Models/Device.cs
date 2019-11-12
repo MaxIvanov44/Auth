@@ -16,7 +16,6 @@ namespace Auth.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int id_device { get; set; }
 
         [Required]

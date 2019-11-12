@@ -26,3 +26,8 @@ C:\Users\ivano\Desktop\Authorization\Auth\Auth\bin\Debug\Logic.dll
 C:\Users\ivano\Desktop\Authorization\Auth\Auth\bin\Debug\Logic.pdb
 C:\Users\ivano\Desktop\Authorization\Auth\Auth\obj\Debug\Master\MasterForm.g.cs
 C:\Users\ivano\Desktop\Authorization\Auth\Auth\obj\Debug\Master\MasterForm.baml
+C:\Users\ivano\Desktop\Authorization\Auth\Auth\obj\Debug\Master\DeviceAdd.g.cs
+C:\Users\ivano\Desktop\Authorization\Auth\Auth\obj\Debug\Master\DeviceAdd.baml
+C:\Users\ivano\Desktop\Authorization\Auth\Auth\obj\Debug\Master\Order.g.cs
+C:\Users\ivano\Desktop\Authorization\Auth\Auth\obj\Debug\Master\Order.baml
+C:\Users\ivano\Desktop\Authorization\Auth\Auth\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
