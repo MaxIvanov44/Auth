@@ -12,7 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Auth.Models;
+
+using database.Models;
 
 namespace Auth.Master
 {
@@ -89,6 +90,12 @@ namespace Auth.Master
             Order ord = new Order();
             this.Hide();
             ord.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            var a = txt.Text[4];
+            txt.Text = a.ToString();
         }
     }
 }

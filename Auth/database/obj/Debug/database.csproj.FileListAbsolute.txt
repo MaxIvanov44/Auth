@@ -1,0 +1,13 @@
+C:\Users\ivano\Desktop\Authorization\Auth\database\bin\Debug\database.dll.config
+C:\Users\ivano\Desktop\Authorization\Auth\database\bin\Debug\database.dll
+C:\Users\ivano\Desktop\Authorization\Auth\database\bin\Debug\database.pdb
+C:\Users\ivano\Desktop\Authorization\Auth\database\bin\Debug\EntityFramework.dll
+C:\Users\ivano\Desktop\Authorization\Auth\database\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ivano\Desktop\Authorization\Auth\database\bin\Debug\EntityFramework.xml
+C:\Users\ivano\Desktop\Authorization\Auth\database\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ivano\Desktop\Authorization\Auth\database\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\ivano\Desktop\Authorization\Auth\database\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\ivano\Desktop\Authorization\Auth\database\obj\Debug\database.csprojAssemblyReference.cache
+C:\Users\ivano\Desktop\Authorization\Auth\database\obj\Debug\database.csproj.CopyComplete
+C:\Users\ivano\Desktop\Authorization\Auth\database\obj\Debug\database.dll
+C:\Users\ivano\Desktop\Authorization\Auth\database\obj\Debug\database.pdb

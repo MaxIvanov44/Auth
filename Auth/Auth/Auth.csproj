@@ -80,12 +80,6 @@
     <Compile Include="Master\Order.xaml.cs">
       <DependentUpon>Order.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Device.cs" />
-    <Compile Include="Models\Master.cs" />
-    <Compile Include="Models\Model1.cs" />
-    <Compile Include="Models\Orders.cs" />
-    <Compile Include="Models\sysdiagrams.cs" />
-    <Compile Include="Models\Users.cs" />
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
@@ -154,11 +148,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Client\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Logic\Logic.csproj">
       <Project>{e872df1b-277e-4a7d-831c-458ec8d51322}</Project>
       <Name>Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\database\database.csproj">
+      <Project>{83236dae-7c8f-4618-ac93-dd40150b0f9f}</Project>
+      <Name>database</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

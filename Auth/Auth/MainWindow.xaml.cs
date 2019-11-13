@@ -1,8 +1,11 @@
 ﻿
 using System;
+using System.Linq;
 using System.Windows;
+using System.Windows.Threading;
 using Auth.Master;
-using Auth.Models;
+using database;
+using database.Models;
 
 namespace Auth
 {
@@ -14,48 +17,65 @@ namespace Auth
         public MainWindow()
         {
             InitializeComponent();
+            timer.Tick += NOW;
+            timer.Tick += All;
         }
+        int count = 0;
+        DispatcherTimer timer = new DispatcherTimer();
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        int cou = 0;
+       
+        void NOW(object sender, object e)
         {
-           Model1 db = new Model1();
-           
+            lbl.Content = cou;
+            cou++;
+        }
+        void All(object sender, object e)
+        {
             try
             {
-                foreach (var users in db.Users)
+                if (cou == 0)
                 {
-                    if (users.password == password.Text && users.username == username.Text)
+                    if (count < 2)
                     {
-                        switch (users.role)
+                        Model1 db = new Model1();
+                        if (authchk.CHK(username.Text, password.Text) == true)
                         {
-                            case "Admin":
-                                Admin adm = new Admin();
-                                this.Hide();
-                                adm.Show();
-                                break;
-                            case "Client":
-                                MessageBox.Show(users.role);
-                                break;
-                            case "Master":
-                                MessageBox.Show(users.role);
-                               
-                                break;
+                            MessageBox.Show("YAY");
+                            count = 0;
+                        }
+                        else if (authchk.CHK(username.Text, password.Text) == false)
+                        {
+                            count++;
                         }
                     }
                     else
                     {
-
+                        MessageBox.Show("Block");
+                       
+                        timer.Start();
                     }
                 }
-              
+                else if (cou > 10000)
+                {
+                    timer.Stop();
+                    btn.IsEnabled = true;
+                    cou = 0;
+                    count = 0;
+                }
+                else
+                {
+                    btn.IsEnabled = false;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
                 MessageBox.Show(ex.Message);
-
             }
-
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            All(sender, e);
         }
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
